@@ -23,8 +23,12 @@ class jugador(BaseModel):
     equipo:str
 
 jugadores = [
-    jugador (id=1, name="messi", dorsal=5, nacimiento="1985-10-25", posicion=PosicionFutbol.DELANTERO, altura=1.50,equipo="barca"),
-    jugador (id=2, name="ronaldo", dorsal=7, nacimiento="1985-10-25", posicion=PosicionFutbol.DELANTERO, altura = 1.84, equipo="realmadrid" )
+    jugador (id=1, name="messi", dorsal=5, nacimiento="1985-10-31", posicion=PosicionFutbol.DELANTERO, altura=1.50,equipo="barca"),
+    jugador (id=2, name="ronaldo", dorsal=7, nacimiento="1985-08-05", posicion=PosicionFutbol.DELANTERO, altura = 1.84, equipo="realmadrid"),
+    jugador (id=3, name="ramos", dorsal=1, nacimiento="1993-01-25", posicion=PosicionFutbol.DEFENSA, altura=1.90, equipo="realmadrid"),
+    jugador (id=4, name="yamal", dorsal=6, nacimiento="2006-06-12", posicion=PosicionFutbol.EXTREMO, altura=1.70, equipo="barca"),
+    jugador (id=5, name="ospina",dorsal=8,nacimiento=1979-11-12,posicion=PosicionFutbol.PORTERO,altura=1.86,equipo="colombia"),
+    jugador (id=6, name="Alexis",dorsal=10,nacimiento="2005-01-25",posicion=PosicionFutbol.EXTREMO,altura=1.71,equipo="barca")
     ]
 
 @app.get("/show_one_player/{id}")
@@ -67,3 +71,7 @@ def equipo_jugador(id: int):
                 "equipo": jugador.equipo
             }
     return {"error": "jugador no encontrado"}
+
+@app.get("/jugadores")
+def mostrar_jugadores():
+    return jugadores
